@@ -11,3 +11,46 @@ nav a {
   font-weight: bold;
   font-size: 18px;
 }
+
+/* Animasi fade in*/
+@keyframes fadein {
+  from { opacity: 0; transform: translatey(30px) }
+  to { opacity: 1; transform: translatey(0) }
+}
+
+body { 
+  animation: fadein 1s ease;
+}
+
+/* Hover effect for buttons */
+button {
+  transition: transform 0.2 ease, box-shadow 0.2s ease;
+}
+button:hover {
+  transform: translatey(-3px);
+  box-shadow: 0 8px 20px rgba(240, 192, 64, 0.5)
+}
+/* Glow effect judul */
+h1 {
+  text-shadow: 0 0 20px #f0c040, 0 0 40px #f0c040, 0 0 60px #f0c040;
+  animation: fadein 1.5s ease;
+}
+/*Animasi input focus*/
+input {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+input:focus {
+  outline: none;
+  border: 2px solid hsl(40, 100%, 50%);
+  box-shadow: 0 0 10px rgba(240, 192, 64, 0.5);
+}
+
+/* Navbar hover */
+nav a:hover {
+  color: #1a1a2e;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
