@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trading XAU - Abu Bakri</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+  body {
+    background-color: #1a1a2e;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    padding: 50px;
+  }
+  input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+  }
+  button {
+    background-color: #f0c040;
+    color: black;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  #hasil {
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="trading.html">📈 Trading</a>
+    <a href="index.html">← Kembali ke Home</a>
+  </nav>
+
+  <h1>Trading Dashboardku</h1>
+  <p>Selamat datang di halaman trading kamu!</p>
+
+  <h2>Kalkulator Profit XAU</h2>
+<input id="beli" type="number" placeholder="Harga beli (2300)">
+<input id="jual" type="number" placeholder="Harga jual (2350)">
+<input id="lot" type="number" placeholder="Lot (0.01)">
+<button onclick="hitungProfit()">Hitung Profit</button>
+<p id="hasil"></p>
+
+<script>
+  function hitungProfit() {
+    var beli = parseFloat(document.getElementById('beli').value)
+    var jual = parseFloat(document.getElementById('jual').value)
+    var lot = parseFloat(document.getElementById('lot').value)
+    var kurs = 16000
+
+    var profitUSD = (jual - beli) * lot * 100
+    var profitIDR = profitUSD * kurs
+
+    if (profitUSD > 0) {
+      document.getElementById('hasil').innerHTML =
+        '✅ Profit: $' + profitUSD.toFixed(2) +
+        ' = Rp' + profitIDR.toLocaleString()
+    } else {
+      document.getElementById('hasil').innerHTML =
+        '❌ Loss: $' + profitUSD.toFixed(2) +
+        ' = Rp' + profitIDR.toLocaleString()
+    }
+  }
+</script>
+
+</body>
+</html>
